@@ -1,6 +1,6 @@
 module View exposing (view)
 
-import Types exposing (Model, Msg)
+import Types exposing (Model, Msg, TaskItem)
 import Html exposing (Html, Attribute, div, input, text, button, li, ul, label)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
@@ -10,17 +10,17 @@ view model =
   div []
     [ ul []
     (List.concat [
-        List.map toTableRow model.toDoList
+        List.map toListItem model.toDoList
     ])
     , input [ placeholder "Enter a task here...", value model.content, onInput Types.Change ] []
     , button [ onClick (Types.SubmitTask model.content) ] [ text "Add Task" ]
     ]
 
-toTableRow: String -> Html Msg
-toTableRow item =
+toListItem: TaskItem -> Html Msg
+toListItem (id, item) =
   li []
      [
      input [type_ "checkbox"] [],
      label [][text item],
-     button [] [ text "x" ]
+     button [ onClick (Types.RemoveTask id) ] [ text (String.fromInt id) ]
      ]
