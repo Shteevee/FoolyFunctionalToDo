@@ -4,7 +4,6 @@ import Types exposing (..)
 import Html exposing (Html, Attribute, div, input, text, button, li, ul, label)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
-import Svg exposing (svg, use)
 
 view : Model -> Html Msg
 view model =
