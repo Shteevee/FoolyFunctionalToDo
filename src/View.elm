@@ -16,10 +16,18 @@ view model =
     ]
 
 toListItem: TaskItem -> Html Msg
-toListItem (id, item) =
-  li [ class "FF-List-Element" ]
-    [
-    input [ type_ "checkbox" ] [],
-    label [][ text item ],
-    button [ onClick (RemoveTask id) ] [ text "X" ]
-    ]
+toListItem (id, item, done) =
+  if done then
+    li [ class "FF-List-Element" ]
+      [
+      input [ type_ "checkbox", onClick (DoneTask id) ] [ ],
+      label [ class "FF-Label-Done" ][ text item ],
+      button [ onClick (RemoveTask id) ] [ text "X" ]
+      ]
+  else
+    li [ class "FF-List-Element" ]
+      [
+      input [ type_ "checkbox", onClick (DoneTask id) ] [ ],
+      label [ class "FF-Label" ][ text item ],
+      button [ onClick (RemoveTask id) ] [ text "X" ]
+      ]

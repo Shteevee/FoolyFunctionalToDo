@@ -10,6 +10,7 @@ type Msg
   = Change String
   | SubmitTask String
   | RemoveTask Int
+  | DoneTask Int
 
 type alias TaskItem =
- (Int, String)
+ (Int, String, Bool)

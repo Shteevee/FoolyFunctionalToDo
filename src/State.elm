@@ -18,17 +18,24 @@ update msg model =
       updateToDoList newContent model
     RemoveTask taskID ->
       removeTaskFromToDoList taskID model
+    DoneTask taskID ->
+      completeTaskFromToDoList taskID model
 
 updateToDoList : String -> Model -> Model
 updateToDoList newTask model = 
   if String.isEmpty newTask then
     model
   else
-    { model | toDoList = model.toDoList ++ [(model.id, newTask)]
+    { model | toDoList = model.toDoList ++ [(model.id, newTask, False)]
     , content = "" 
     , id = model.id+1
     }
 
 removeTaskFromToDoList : Int -> Model -> Model
 removeTaskFromToDoList id model =
-  { model | toDoList = List.filter (\(x, y) -> x /= id) model.toDoList }
+  { model | toDoList = List.filter (\(x,y,z) -> x /= id) model.toDoList }
+
+completeTaskFromToDoList : Int -> Model -> Model
+completeTaskFromToDoList id model =
+  { model | toDoList = List.map (\(x,y,z) -> if x == id then (x,y, not z) else (x,y,z)) model.toDoList }
+

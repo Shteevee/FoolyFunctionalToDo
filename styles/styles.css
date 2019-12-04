@@ -1,7 +1,7 @@
 .FF-Container {
     margin: auto;
     text-align: center;
-    width: 50%;
+    width: 70%;
 }
 
 .FF-Submit-Button {
@@ -40,26 +40,47 @@
     font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
 }
 
-.FF-List:last-child {
-    border: none;
-}
-
 .FF-List li {
     list-style-type: none;
 }
 
-.FF-List * {
+.FF-List li * {
     display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.FF-List li label {
-    text-decoration: none;
+.FF-Label {
     color: #000;
-    width: 200px;
+    width: 40%;
+    overflow-wrap: break-word;
+    text-decoration: none;
 
     -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
     -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
     -o-transition: font-size 0.3s ease, background-color 0.3s ease;
     -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
     transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.FF-Label-Done {
+    color: #000;
+    width: 40%;
+    text-decoration: line-through;
+    overflow-wrap: break-word;
+
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.FF-Title {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 40px;
+    color: #408C99;
+    font-weight: 700;
+    text-align: center;
 }
