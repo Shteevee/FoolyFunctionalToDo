@@ -1,8 +1,8 @@
 module View exposing (view)
 
-import Types exposing (..)
-import Html exposing (Html, Attribute, div, input, text, button, li, ul, label)
-import Html.Attributes exposing (..)
+import Types exposing (Model, TaskItem, Msg(..))
+import Html exposing (Html, div, input, text, button, li, ul, label)
+import Html.Attributes exposing (class, placeholder, value, type_)
 import Html.Events exposing (onInput, onClick)
 
 view : Model -> Html Msg

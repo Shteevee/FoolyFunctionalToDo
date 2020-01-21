@@ -1,4 +1,4 @@
-module Types exposing (..)
+module Types exposing (Model, Msg(..), TaskItem)
 
 type alias Model =
   { content : String

@@ -1,6 +1,6 @@
 module State exposing (init, update)
 
-import Types exposing (..)
+import Types exposing (Model, Msg(..))
 
 init : Model
 init =
@@ -33,7 +33,7 @@ updateToDoList newTask model =
 
 removeTaskFromToDoList : Int -> Model -> Model
 removeTaskFromToDoList id model =
-  { model | toDoList = List.filter (\(x,y,z) -> x /= id) model.toDoList }
+  { model | toDoList = List.filter (\(x,_,_) -> x /= id) model.toDoList }
 
 completeTaskFromToDoList : Int -> Model -> Model
 completeTaskFromToDoList id model =
